@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+		<title>Sound Mixer Studio App</title>
+
+		<!-- Here we include the our JavaScript file. You can include multiple files. -->
+		<!-- The files can have any name. -->
+		<script type="text/javascript" src="chroma.js"></script>
+		<script type="text/javascript" src="myJavaScriptFile.js"></script>
+
+	</head>
+
+	<body bgcolor="Aqua">
+
+		<div id="myDivContainer">
+		<h1>BiQuad Filters</h1>
+			<!-- HTML input list. -->
+			<input type="file" id="files" name="files[]" multiple />
+
+			<br><br>
+
+			<input id="button1" type="button" name="button1" value="Play the sound"
+												onClick="playSound(aSoundBuffer)"> <br><br>
+
+			<input id="button2" type="button" name="button2" value="Stop the sound"
+												onClick="stopSound()"> <br><br>
+
+			<select id="bqfilters" onchange="">
+
+			<option value="lowpass">Low Pass</option>
+			<option value="highpass">High Pass</option>
+			<option value="lowshelf">Lowshelf</option>
+			<option value="highshelf">Highshelf</option>
+			<option value="peaking">Peaking</option>
+			</select>
+			<br>
+
+			<label for="volume">Volume</label>
+			<input id="volume" type="range" min="0" max="1" step="0.1" value="1.0"/> <br>
+
+			<label for="frequency2">Frequency</label>
+			<input id="frequency2" type="range" min="5" max="10000" value="1000">
+
+			<br>
+			<br>
+
+			<h1> Oscillators </h1>
+			<input type="file" id="files2" name="files[]" multiple />
+
+			<br><br>
+
+			<input id="button1" type="button" name="button1" value="Play the sound"
+												onClick="playSound2(aSoundBuffer)"> <br><br>
+
+			<input id="button2" type="button" name="button2" value="Stop the sound"
+												onClick="stopSound2()"> <br><br>
+
+			<select id="oscfilter" onchange="">
+
+			<option value="sine">Sine</option>
+			<option value="square">Square</option>
+			<option value="sawtooth">Sawtooth</option>
+			<option value="triangle">Triangle</option>
+			</select>
+			<br>
+
+			<input id="volume2" type="range" min="0" max="1" step="0.1" value="1.0"/> <br><br>
+			<label for="frequency">Frequency</label><input id="frequency" type="range" min="0" max="2000" step="1"  value="440"/> <br><br>
+		</div>
+
+			<!-- The canvas where we visualise our waveform. -->
+			<canvas id="canvas" width="600" height="300"></canvas>
+
+			<!-- 2nd Canvas -->
+			<canvas id="canvas2" width="640" height="360"></canvas>
+			<br>
+			<br>
+
+			<div id="debugInfo" style="position: absolute; top: 70px; left: 650px; width: 700px; background: Olive;">
+			</div>
+
+			<!-- Initalise the audio context.. -->
+			<script LANGUAGE="JavaScript">
+				init();
+				addEvents();
+			</script>
+
+</body>
+</html>
